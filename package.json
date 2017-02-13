@@ -1,0 +1,22 @@
+{
+  "name": "github-avatar-downloader",
+  "version": "1.0.0",
+  "description": "downloads avatars from github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuzanatoldyova/github-avatar-downloader.git"
+  },
+  "author": "zuzana toldyova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuzanatoldyova/github-avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/zuzanatoldyova/github-avatar-downloader#readme",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
