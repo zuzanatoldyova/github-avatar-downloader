@@ -1,6 +1,8 @@
 var request = require('request');
-var GITHUB_USER = "zuzanatoldyova";
-var GITHUB_TOKEN = "1c8563b432b2c97cb0a77eefc49de460c62d33d7";
+var auth = require('dotenv').config();
+
+var GITHUB_USER = process.env.GITHUB_USER;
+var GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // parses data from githubs requested repository and passes them to
 // a callback function
