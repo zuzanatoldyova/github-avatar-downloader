@@ -10,6 +10,6 @@ var repoName = userInput[1];
 
 if(!repoOwner || !repoName) {
   console.log('The input is not valid, please enter repoOwner and repoName');
+} else {
+  contributors.getRepoContributors(repoOwner, repoName, avatars.extractAvatars);
 }
-
-contributors.getRepoContributors(repoOwner, repoName, avatars.extractAvatars);
