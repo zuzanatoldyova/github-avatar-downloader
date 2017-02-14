@@ -1,6 +1,7 @@
 var request = require('request');
 var fs = require('fs');
 
+// downloads an image from url and storing to filepath
 function downloadImageByURL(url, filePath) {
   request.get(url)
          .on('error', function(err) {
@@ -12,6 +13,7 @@ function downloadImageByURL(url, filePath) {
            }));
 }
 
+// iterates over parsed user data and invokes downloadImageByURL function
 function extractAvatars(data) {
   for (var user of data) {
     var filePath = `./avatars/${user.login}.jpg`;
