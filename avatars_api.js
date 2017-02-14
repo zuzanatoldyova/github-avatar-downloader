@@ -10,20 +10,11 @@ function downloadImageByURL(url, filePath) {
          })
          .pipe(fs.createWriteStream(filePath)
            .on('error', function(err) {
-            throw err;
+             throw err;
            })
            .on('finish', function() {
              console.log('avatar downloaded');
            }));
-}
-
-// iterates over parsed user data and invokes downloadImageByURL function
-function extractAvatars(data) {
-  for (var user of data) {
-    var filePath = `./avatars/${user.login}.jpg`;
-    ensureDirectoryExistence(filePath);
-    downloadImageByURL(user.avatar_url, filePath);
-  }
 }
 
 function ensureDirectoryExistence(filePath) {
@@ -33,6 +24,15 @@ function ensureDirectoryExistence(filePath) {
   }
   ensureDirectoryExistence(dirname);
   fs.mkdirSync(dirname);
+}
+
+// iterates over parsed user data and invokes downloadImageByURL function
+function extractAvatars(data) {
+  for (var user of data) {
+    var filePath = `./avatars/${user.login}.jpg`;
+    ensureDirectoryExistence(filePath);
+    downloadImageByURL(user.avatar_url, filePath);
+  }
 }
 
 module.exports = {

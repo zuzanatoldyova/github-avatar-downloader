@@ -3,7 +3,7 @@ var fs = require('fs');
 var auth = require('dotenv').config();
 
 if (!fs.existsSync('./.env')) {
-    throw new Error('.env file storing credentials is missing');
+  throw new Error('.env file storing credentials is missing');
 }
 
 var GITHUB_USER = process.env.GITHUB_USER;
@@ -28,9 +28,9 @@ function getRepoContributors(repoOwner, repoName, cb) {
       if (String(response.statusCode).match(/404/)) {
         console.log('Provided repo does not exist');
       } else if (String(response.statusCode).match(/401/)) {
-        console.log('Unauthorized repo access')
+        console.log('Unauthorized repo access');
       } else {
-        console.log('Something wrong with the application')
+        console.log('Something wrong with the application');
       }
     } else {
       var contributors = JSON.parse(body);
