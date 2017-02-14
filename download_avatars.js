@@ -11,19 +11,23 @@ function getRepoContributors(repoOwner, repoName, cb) {
       'User-Agent': 'GitHub Avatar Downloader - Student Project'
     }
   };
-  request(options, cb);
-}
 
-function cb(error, response, body) {
-      if (error || response.statusCode != 200) {
+  request(options, function(error, response, body) {
+    if (error || response.statusCode != 200) {
       console.log('Something wrong with the request');
     } else {
-      console.log(body);
+      var contributors = JSON.parse(body);
+      cb(contributors);
+      // console.log(body);
     }
+  });
 }
 
-getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
-});
+function cb(data) {
+  for (var user of data) {
+    console.log(user.avatar_url);
+  }
+}
+
+getRepoContributors("jquery", "jquery", cb);
 
