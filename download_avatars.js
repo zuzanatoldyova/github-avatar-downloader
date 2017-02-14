@@ -2,7 +2,7 @@ var request = require('request');
 var fs = require('fs');
 var GITHUB_USER = "zuzanatoldyova";
 var GITHUB_TOKEN = "1c8563b432b2c97cb0a77eefc49de460c62d33d7";
-
+var user_input = process.argv.slice(2);
 
 
 function getRepoContributors(repoOwner, repoName, cb) {
@@ -31,7 +31,7 @@ function cb(data) {
   }
 }
 
-getRepoContributors("jquery", "jquery", cb);
+getRepoContributors(user_input[0], user_input[1], cb);
 
 function downloadImageByURL(url, filePath) {
   request.get(url)
