@@ -1,4 +1,5 @@
 var request = require('request');
+var fs = require('fs');
 var GITHUB_USER = "zuzanatoldyova";
 var GITHUB_TOKEN = "1c8563b432b2c97cb0a77eefc49de460c62d33d7";
 
@@ -31,3 +32,9 @@ function cb(data) {
 
 getRepoContributors("jquery", "jquery", cb);
 
+function downloadImageByURL(url, filePath) {
+  request.get(url)
+         .pipe(fs.createWriteStream(filePath));
+}
+
+downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "./kvirani.jpg");
