@@ -5,11 +5,9 @@ var contributors = require('./contributors_parser');
 // using modules to iterate and download all avatars
 // from requested github repository
 var userInput = process.argv.slice(2);
-var repoOwner = userInput[0];
-var repoName = userInput[1];
 
-if(!repoOwner || !repoName) {
+if (! userInput || !(userInput.length === 2)) {
   console.log('The input is not valid, please enter repoOwner and repoName');
 } else {
-  contributors.getRepoContributors(repoOwner, repoName, avatars.extractAvatars);
+  contributors.getRepoContributors(userInput[0], userInput[1], avatars.extractAvatars);
 }
