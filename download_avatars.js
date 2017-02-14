@@ -11,6 +11,3 @@ if(!repoOwner || !repoName) {
 }
 
 contributors.getRepoContributors(repoOwner, repoName, avatars.extractAvatars);
-
-
-

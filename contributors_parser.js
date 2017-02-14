@@ -11,10 +11,6 @@ function getRepoContributors(repoOwner, repoName, cb) {
     }
   };
 
-  if(!repoOwner || !repoName) {
-    console.log('The input is not valid, please enter repoOwner and repoName');
-    return;
-  }
 
   request(options, function(error, response, body) {
     if (error || response.statusCode !== 200) {
